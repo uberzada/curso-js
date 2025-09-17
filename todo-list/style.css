@@ -1,24 +1,24 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
     outline: none;
 }
 
-
 body {
-    background: url(img/wallpaper.webp);
+    background: url(img/wallpaper.webp) no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
 }
 
 .container {
     background-color: #d1d1d1;
     border-radius: 10px;
     padding: 20px;
-    margin: 100px auto 0px;
-    max-width: 500px;
-    display: block;
-    width: 90%;
+    margin: 50px auto;
+    max-width: 500px; /* agora limita em 500px no máximo */
+    width: 90%; /* ocupa 90% da tela em telas pequenas */
 }
 
 .container h1 {
@@ -31,11 +31,11 @@ body {
 .input-task {
     border: none;
     border-radius: 5px;
-    max-width: 270px;
     height: 40px;
     padding-left: 10px;
     font-size: 0.9em;
-    width: 90%;
+    width: calc(100% - 120px); /* ocupa o espaço sobrando ao lado do botão */
+    margin-bottom: 10px;
 }
 
 .button-add-task {
@@ -46,9 +46,14 @@ body {
     color: white;
     font-size: 17px;
     padding: 0px 15px;
-    float: right;
     cursor: pointer;
     font-weight: 700;
+}
+
+/* Para evitar o float e deixar flexível */
+.input-wrapper {
+    display: flex;
+    gap: 10px;
 }
 
 .button-add-task:hover {
@@ -63,7 +68,6 @@ body {
     width: 100%;
     list-style: none;
     margin-top: 25px;
-
 }
 
 .task {
@@ -87,7 +91,6 @@ img {
 
 .task:hover img {
     opacity: 1;
-    
 }
 
 .done {
@@ -95,3 +98,18 @@ img {
     text-decoration: line-through;
 }
 
+/* Responsividade extra */
+@media (max-width: 400px) {
+    .container h1 {
+        font-size: 1.5em;
+    }
+
+    .input-wrapper {
+        flex-direction: column; /* input e botão ficam empilhados */
+    }
+
+    .input-task,
+    .button-add-task {
+        width: 100%;
+    }
+}
