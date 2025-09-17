@@ -13,10 +13,12 @@ body {
 
 .container {
     background-color: #d1d1d1;
-    width: 500px;
     border-radius: 10px;
     padding: 20px;
     margin: 100px auto 0px;
+    max-width: 500px;
+    display: block;
+    width: 90%;
 }
 
 .container h1 {
